@@ -62,43 +62,38 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <header>
-        <div className="logo-container">
-          <img src="/jukebox_logo.png" alt="Suno Retro Logo" />
+      <div className="jukebox-chassis">
+        <header className="jukebox-header">
+          <h1>Vintage Suno</h1>
+          <p>Drop a coin and generate incredible songs in seconds.</p>
+        </header>
+
+        <div className="jukebox-control-panel form-wrapper">
+          <MusicForm 
+            onSubmit={handleGenerate} 
+            isLoading={isPolling || status === 'PENDING'} 
+          />
         </div>
-        <h1>Vintage Suno Jukebox</h1>
-        <p>Drop a coin and generate incredible songs in seconds.</p>
-      </header>
 
-      <div className="disco-centerpiece">
-        <img src="/vintage_jukebox.png" alt="Vintage Jukebox" />
-      </div>
-
-      <div className="form-wrapper">
-        <MusicForm 
-          onSubmit={handleGenerate} 
-          isLoading={isPolling || status === 'PENDING'} 
-        />
-      </div>
-
-      {error && (
-        <div className="glass-panel" style={{ borderColor: 'var(--danger-color)', width: '100%', maxWidth: '700px' }}>
-          <p style={{ color: 'var(--danger-color)' }}>{error}</p>
-        </div>
-      )}
-
-      {isPolling && <StatusDisplay status={status} />}
-
-      {songs.length > 0 && (
-        <div className="results-section">
-          <h2 className="results-title">Your Masterpieces</h2>
-          <div className="results-grid">
-            {songs.map((song) => (
-              <SongCard key={song.id} song={song} />
-            ))}
+        {error && (
+          <div className="jukebox-error">
+            <p>{error}</p>
           </div>
-        </div>
-      )}
+        )}
+
+        {isPolling && <StatusDisplay status={status} />}
+
+        {songs.length > 0 && (
+          <div className="results-section">
+            <h2 className="results-title">Now Playing</h2>
+            <div className="results-grid">
+              {songs.map((song) => (
+                <SongCard key={song.id} song={song} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
