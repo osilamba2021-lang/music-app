@@ -15,7 +15,8 @@ export const generateMusic = async (prompt, model, instrumental) => {
       prompt: prompt,
       model: model,
       instrumental: instrumental,
-      customMode: false
+      customMode: false,
+      callBackUrl: "https://github.com/osilamba2021-lang/music-app" // Suno API requires this field even when polling
     };
 
     const response = await fetch('/api/generate', {

@@ -1,0 +1,16 @@
+{
+  "name": "Suno AI Music Generator",
+  "short_name": "Suno AI",
+  "description": "Turn your ideas into incredible songs in seconds.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#8b5cf6",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
