@@ -28,8 +28,10 @@ export const generateMusic = async (prompt, model, instrumental) => {
 
     const data = await response.json();
     
-    if (!response.ok) {
-      throw new Error(data.msg || 'Failed to generate music');
+    // Some APIs return HTTP 200 but include an error code in the JSON body
+    // We need to check if response is not ok, OR if the data.code is not 200, OR if data.data is missing
+    if (!response.ok || data.code !== 200 || !data.data) {
+      throw new Error(data.msg || data.message || 'Failed to generate music. Check your API key and credits.');
     }
 
     // Return the taskId
