@@ -64,14 +64,14 @@ export default function App() {
     <div className="app-container">
       <header>
         <div className="logo-container">
-          <img src="/logo.png" alt="Suno Retro Logo" />
+          <img src="/jukebox_logo.png" alt="Suno Retro Logo" />
         </div>
-        <h1>Retro Suno Generator</h1>
-        <p>Turn your ideas into incredible songs in seconds.</p>
+        <h1>Vintage Suno Jukebox</h1>
+        <p>Drop a coin and generate incredible songs in seconds.</p>
       </header>
 
       <div className="disco-centerpiece">
-        <img src="/disco_ball.png" alt="Disco Ball" />
+        <img src="/vintage_jukebox.png" alt="Vintage Jukebox" />
       </div>
 
       <div className="form-wrapper">
