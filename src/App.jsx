@@ -63,17 +63,26 @@ export default function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>Suno AI Music Generator</h1>
+        <div className="logo-container">
+          <img src="/logo.png" alt="Suno Retro Logo" />
+        </div>
+        <h1>Retro Suno Generator</h1>
         <p>Turn your ideas into incredible songs in seconds.</p>
       </header>
 
-      <MusicForm 
-        onSubmit={handleGenerate} 
-        isLoading={isPolling || status === 'PENDING'} 
-      />
+      <div className="disco-centerpiece">
+        <img src="/disco_ball.png" alt="Disco Ball" />
+      </div>
+
+      <div className="form-wrapper">
+        <MusicForm 
+          onSubmit={handleGenerate} 
+          isLoading={isPolling || status === 'PENDING'} 
+        />
+      </div>
 
       {error && (
-        <div className="glass-panel" style={{ borderColor: 'var(--danger-color)' }}>
+        <div className="glass-panel" style={{ borderColor: 'var(--danger-color)', width: '100%', maxWidth: '700px' }}>
           <p style={{ color: 'var(--danger-color)' }}>{error}</p>
         </div>
       )}
@@ -81,8 +90,8 @@ export default function App() {
       {isPolling && <StatusDisplay status={status} />}
 
       {songs.length > 0 && (
-        <div>
-          <h2 style={{ marginBottom: '20px', textAlign: 'center' }}>Your Masterpieces</h2>
+        <div className="results-section">
+          <h2 className="results-title">Your Masterpieces</h2>
           <div className="results-grid">
             {songs.map((song) => (
               <SongCard key={song.id} song={song} />
